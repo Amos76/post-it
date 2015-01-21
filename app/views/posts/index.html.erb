@@ -1,0 +1,27 @@
+<h1>Recent Posts</h1>
+
+
+	<!-- This is an HTML comment -->
+	<%# This is a ERB ruby comment %>
+<section class="posts">
+
+	<% @posts.each do |post|%>
+
+		<div class="post"> 
+
+			<%= link_to post_path(post) do %>
+				<h2><%= post.title %></h2>
+			<% end %>
+			<p><%= post.body %></p>
+			<small>Post at <%= time_ago_in_words post.created_at %> ago.</small>
+			<p><%= link_to "Edit", edit_post_path(post.id) %></p>
+
+		</div>
+
+	<% end %>
+
+
+<section>
+	<p><%= link_to "New Post", new_post_path %></p>
+
+</section>
